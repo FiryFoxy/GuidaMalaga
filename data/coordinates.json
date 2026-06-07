@@ -42,5 +42,6 @@
   "trip-marbella": { "lat": 36.5101, "lng": -4.8824 },
   "trip-torcal": { "lat": 36.9536, "lng": -4.4449 },
   "trip-granada": { "lat": 37.1761, "lng": -3.5881 },
-  "trip-mijas": { "lat": 36.5957, "lng": -4.6393 }
+  "trip-mijas": { "lat": 36.5957, "lng": -4.6393 },
+  "free-tour-malaga": { "lat": 36.7218, "lng": -4.4173 }
 }

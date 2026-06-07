@@ -1,4 +1,17 @@
 [
+    {
+    "id": "free-tour-malaga",
+    "category": "excursions",
+    "title": "Free tour di Malaga",
+    "desc": "La Calle Larios, il Teatro Romano e la Cattedrale sono solo alcuni dei bellissimi luoghi che vedrete nel free tour di Malaga. Un'esperienza unica, da non perdere!",
+    "icon": "🏙️",
+    "location": "Malaga città",
+    "hours": "Tutti i giorni · Prenotazione obbligatoria",
+    "transport": "Plaza de la Constitución. Tipicamente il punto di partenza del tour",
+    "time": "2 ore",
+    "cost": "Gratis (consigliata mancia alla guida)",
+    "url": "https://www.caminitodelrey.info/"
+  },
   {
     "id": "trip-caminito",
     "category": "excursions",
