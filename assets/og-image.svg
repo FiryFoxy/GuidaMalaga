@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Erasmus a Malaga">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B23B3B"/>
+      <stop offset="100%" stop-color="#6B1D2F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <text x="200" y="340" font-size="220">☀️</text>
+  <text x="480" y="280" fill="#FAF8F5" font-family="Georgia, serif" font-size="72" font-weight="700">Erasmus a Malaga</text>
+  <text x="480" y="350" fill="#F7E1DD" font-family="Arial, sans-serif" font-size="36">Guida interattiva · Luglio – Agosto 2026</text>
+  <text x="480" y="420" fill="#D9A59B" font-family="Arial, sans-serif" font-size="28">Musei · Ristoranti · Pub · Gite · Meteo · Planner</text>
+</svg>

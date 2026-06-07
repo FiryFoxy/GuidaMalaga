@@ -1,0 +1,35 @@
+{
+  "name": "Erasmus a Malaga — Guida interattiva",
+  "short_name": "Malaga Erasmus",
+  "description": "Guida interattiva per il soggiorno Erasmus a Malaga: luoghi, mappe, meteo e planner.",
+  "id": "../",
+  "start_url": "../",
+  "scope": "../",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#6B1D2F",
+  "theme_color": "#6B1D2F",
+  "lang": "it",
+  "categories": ["travel", "education"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

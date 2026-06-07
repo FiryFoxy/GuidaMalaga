@@ -1,0 +1,23 @@
+{
+  "title": "Erasmus a Malaga",
+  "subtitle": "13 luglio – 16 agosto 2026 · 5 settimane a Malaga",
+  "erasmus": {
+    "start": "2026-07-13",
+    "end": "2026-08-16"
+  },
+  "tabs": [
+    { "id": "intro", "label": "Home", "shortLabel": "Home", "icon": "🏠" },
+    { "id": "weather", "label": "Meteo", "shortLabel": "Meteo", "icon": "🌤️" },
+    { "id": "vocabulary", "label": "Vocabolario", "shortLabel": "Lingua", "icon": "🗣️" },
+    { "id": "culture", "label": "Cultura & Teatri", "shortLabel": "Cultura", "icon": "🏛️" },
+    { "id": "food", "label": "Ristoranti", "shortLabel": "Ristoranti", "icon": "🍽️" },
+    { "id": "dishes", "label": "Piatti tradizionali", "shortLabel": "Piatti", "icon": "🥘" },
+    { "id": "nightlife", "label": "Pub & Serate", "shortLabel": "Pub", "icon": "🍻" },
+    { "id": "shopping", "label": "Shopping", "shortLabel": "Shop", "icon": "🛍️" },
+    { "id": "excursions", "label": "Gite Fuori Porta", "shortLabel": "Gite", "icon": "🚂" },
+    { "id": "map", "label": "Mappa", "shortLabel": "Mappa", "icon": "🗺️" },
+    { "id": "program", "label": "Programma", "shortLabel": "Programma", "icon": "✅" },
+    { "id": "planner", "label": "Planner", "shortLabel": "Planner", "icon": "🗓️" }
+  ],
+  "placeFiles": ["culture", "food", "nightlife", "shopping", "excursions"]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "night-zzpub",
+    "category": "nightlife",
+    "title": "ZZ Pub",
+    "desc": "Locale storico della scena musicale di Malaga, attivo dal 1991. Famoso per i suoi concerti dal vivo quasi ogni sera: rock, blues, jazz, seguiti da sessioni dj-set fino alle prime ore del mattino. Clientela alternativa e informale.",
+    "icon": "🎸",
+    "location": "Calle Tejón y Marín",
+    "hours": "Tutti i giorni 22:30–04:00 (fine settimana fino alle 05:00)",
+    "url": "http://www.zzpub.es/"
+  },
+  {
+    "id": "night-velvet",
+    "category": "nightlife",
+    "title": "Velvet Club Málaga",
+    "desc": "Locale di tendenza nel cuore del centro storico. Funge da sala concerti per artisti indipendenti nel tardo pomeriggio e prima serata, e si trasforma in discoteca con musica elettronica, indie-pop e urban per ballare tutta la notte.",
+    "icon": "🕺",
+    "location": "Calle Convalecientes",
+    "hours": "Gio-Sab 22:00–04:00 (venerdì-sabato fino alle 05:00)",
+    "url": "https://www.velvetclub.es/"
+  },
+  {
+    "id": "night-gold",
+    "category": "nightlife",
+    "title": "Sala Gold",
+    "desc": "Una delle discoteche più grandi, eleganti e frequentate nel centro di Malaga. Propone serate a tema con vari DJ, spettacoli, musica commerciale e hits del momento. Molto frequentata anche da studenti Erasmus e turisti internazionali.",
+    "icon": "✨",
+    "location": "Calle Luis de Velázquez",
+    "hours": "Tutti i giorni 23:00–06:00 (ingresso a pagamento, a volte pacchetti Erasmus)",
+    "url": "https://salagold.com/"
+  },
+  {
+    "id": "night-shakespeare",
+    "category": "nightlife",
+    "title": "The Shakespeare Bar",
+    "desc": "Tipico pub in stile inglese con una vasta selezione di birre artigianali, cocktail e giochi da tavolo. Molto accogliente e informale, è il punto di ritrovo preferito per gli studenti internazionali per conversare e fare amicizia.",
+    "icon": "🍺",
+    "location": "Calle Santa Lucía",
+    "hours": "Mar-Dom 17:00–02:00 · Lunedì chiuso",
+    "url": "https://www.facebook.com/TheShakespearePubMalaga/"
+  },
+  {
+    "id": "night-valeria",
+    "category": "nightlife",
+    "title": "La Terraza de Valeria",
+    "desc": "Spettacolare rooftop bar sul tetto dell'Hotel Room Mate Valeria. Offre una terrazza con piscina (solo per ospiti) e tavoli all'aperto aperti al pubblico con splendide viste panoramiche sul porto (Muelle Uno) e sulla ruota panoramica. Perfetto al tramonto.",
+    "icon": "🍸",
+    "location": "Plaza Poeta Alfonso Canales",
+    "hours": "Dom-Gio 11:00–00:00 · Ven-Sab 11:00–02:00",
+    "url": "https://room-matehotels.com/it/valeria/r-roof-terrace/"
+  },
+  {
+    "id": "night-morrisseys",
+    "category": "nightlife",
+    "title": "Morrissey's Irish Pub",
+    "desc": "Vivace pub irlandese situato nel pieno centro storico. Offre pinte tradizionali, maxischermi per seguire eventi sportivi internazionali, serate karaoke e musica dal vivo. Un ambiente molto rilassante per incontrare altri studenti.",
+    "icon": "🍻",
+    "location": "Calle Méndez Núñez",
+    "hours": "Dom-Gio 12:00–02:00 · Ven-Sab 12:00–03:00",
+    "url": "https://morrisseysirishpub.com/"
+  },
+  {
+    "id": "night-larios",
+    "category": "nightlife",
+    "title": "La Terraza de Larios",
+    "desc": "Elegante terrazza situata sul tetto dell'Hotel Room Mate Larios. Si affaccia direttamente su Calle Larios offrendo una prospettiva unica sul cuore pedonale di Malaga. Famosa per ottimi cocktail e musica di sottofondo rilassante.",
+    "icon": "🌃",
+    "location": "Calle Marqués de Larios",
+    "hours": "Tutti i giorni 16:00–01:00 (venerdì e sabato fino alle 02:00)",
+    "url": "https://room-matehotels.com/it/larios/r-roof-terrace/"
+  },
+  {
+    "id": "night-mitjana",
+    "category": "nightlife",
+    "title": "Taberna Mitjana",
+    "desc": "Storico e popolarissimo locale situato a Plaza Mitjana. Famoso per proporre shot (chupitos), birre e drink a prezzi estremamente economici, ideali per gli studenti. È la tappa di partenza classica per ogni serata del fine settimana.",
+    "icon": "🥃",
+    "location": "Plaza de Mitjana",
+    "hours": "Tutti i giorni 19:00–02:00 (fine settimana fino alle 03:00)",
+    "url": "https://www.instagram.com/taberna_mitjana/"
+  }
+]

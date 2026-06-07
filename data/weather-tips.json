@@ -1,0 +1,27 @@
+{
+  "season": {
+    "title": "Estate a Málaga (luglio – agosto)",
+    "tempRange": "22°C – 32°C (picchi di 40°C col vento Terral)",
+    "highlights": [
+      "Giornate soleggiate: quasi 11 ore di sole al giorno",
+      "Il vento caldo 'Terral' può alzare improvvisamente le temperature",
+      "Precipitazioni quasi nulle: estate caldissima e secca"
+    ]
+  },
+  "packing": [
+    "Crema solare ad alta protezione (essenziale)",
+    "Cappello, occhiali da sole e costume da bagno",
+    "Abbigliamento leggero e traspirante (lino, cotone)",
+    "Borraccia termica per avere acqua sempre fredda"
+  ],
+  "planning": [
+    { "condition": "Caldo intenso (>33°C)", "tip": "Ore centrali nei musei condizionati (Picasso, Pompidou) o relax in spiaggia." },
+    { "condition": "Terral (vento caldo)", "tip": "Evita escursioni esposte come il Caminito del Rey; cerca locali al chiuso con aria condizionata." },
+    { "condition": "Sera ventilata", "tip": "Perfetta per un cocktail su una terrazza rooftop o una passeggiata al Muelle Uno." },
+    { "condition": "Mattina presto", "tip": "Il momento migliore per salire al Castello di Gibralfaro o fare jogging sul lungomare." }
+  ],
+  "links": [
+    { "label": "AEMET (ufficiale)", "url": "https://www.aemet.es/es/eltiempo/prediccion/municipios/malaga-id29067" },
+    { "label": "Open-Meteo", "url": "https://open-meteo.com/" }
+  ]
+}

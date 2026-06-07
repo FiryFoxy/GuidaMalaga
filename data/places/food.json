@@ -1,0 +1,92 @@
+[
+  {
+    "id": "food-pimpi",
+    "category": "food",
+    "title": "El Pimpi",
+    "desc": "La bodega-taverna più famosa e iconica di Malaga. Famosa per le botti di vino dolce autografate da celebrità (tra cui Antonio Banderas). Offre ottimi piatti di tapas andaluse in un dedalo di cortili fioriti tradizionali.",
+    "icon": "🍷",
+    "location": "Calle Granada",
+    "hours": "Tutti i giorni 12:00–01:00",
+    "url": "https://elpimpi.com/"
+  },
+  {
+    "id": "food-atarazanas",
+    "category": "food",
+    "title": "Mercado de Atarazanas",
+    "desc": "Storico mercato centrale coperto in stile neo-moresco. Qui potrai acquistare ingredienti locali freschissimi o consumare eccezionali tapas di pesce fritto, spiedini e frutti di mare cucinati sul momento nei chioschi all'ingresso.",
+    "icon": "🐟",
+    "location": "Calle Atarazanas",
+    "hours": "Lun-Sab 08:00–15:00 · Domenica chiuso (perfetto per pranzo presto)",
+    "url": "https://www.malagaturismo.com/it/risorse-turistiche/dettaglio/mercado-central-de-atarazanas/13"
+  },
+  {
+    "id": "food-guardia",
+    "category": "food",
+    "title": "Antigua Casa de Guardia",
+    "desc": "La taverna più antica di Malaga (fondata nel 1840). Un locale storico senza sedie, dove si consuma in piedi al bancone. Si ordina il tipico vino dolce di Malaga direttamente dalle botti di legno e il conto viene scritto col gesso sul bancone.",
+    "icon": "🍇",
+    "location": "Alameda Principal",
+    "hours": "Lun-Sab 10:00–22:00 · Dom 11:00–15:00",
+    "url": "https://antiguacasadeguardia.com/"
+  },
+  {
+    "id": "food-tintero",
+    "category": "food",
+    "title": "Chiringuito El Tintero",
+    "desc": "Ristorante di pesce unico al mondo situato sulla spiaggia di El Palo. Qui non c'è menu cartaceo: i camerieri girano tra i tavoli con i vassoi urlando i piatti pronti ('subasta de pescado'). Tu fermi il cameriere se il piatto ti piace e paghi a fine pasto contando i piatti accumulati.",
+    "icon": "🥘",
+    "location": "Playa de El Palo",
+    "hours": "Tutti i giorni 12:30–23:30 (raggiungibile con i bus 3 o 8)",
+    "url": "https://eltinteromadre.com/"
+  },
+  {
+    "id": "food-cortijo",
+    "category": "food",
+    "title": "Cortijo de Pepe",
+    "desc": "Tipica taverna andalusa dall'atmosfera rustica, aperta dal 1971. Al piano inferiore c'è il bancone bar dove ordinare tapas di carne alla brace, polpo e salumi, mentre al piano superiore c'è il ristorante tradizionale.",
+    "icon": "🥩",
+    "location": "Plaza de la Merced",
+    "hours": "Mer-Dom 12:30–16:00 e 19:30–00:00 · Lun-Mar chiuso",
+    "url": "https://www.cortijodepepe.com/"
+  },
+  {
+    "id": "food-lola",
+    "category": "food",
+    "title": "Casa Lola Tavern",
+    "desc": "Taverna moderna ma con una forte decorazione rétro che richiama la Malaga di un tempo. Famosa per pinchos, salumi, formaggi e porra antequerana a prezzi accessibili. Sempre molto affollata per l'ottimo rapporto qualità-prezzo.",
+    "icon": "🍢",
+    "location": "Calle Granada / Plaza Uncibay",
+    "hours": "Tutti i giorni 12:00–00:00",
+    "url": "https://tabernacasalola.com/"
+  },
+  {
+    "id": "food-recova",
+    "category": "food",
+    "title": "La Recova",
+    "desc": "Un minuscolo locale-bottega d'artigianato dove fare la colazione più famosa di Malaga. Con pochi euro ordini caffè e fette di pane tostato servite su una tavolozza di cartone con varie ciotoline di paté fatti in casa, burro insaporito e marmellate.",
+    "icon": "☕",
+    "location": "Pasaje Nuestra Señora de los Dolores",
+    "hours": "Lun-Ven 08:30–16:00 · Sab 08:30–13:00 · Domenica chiuso (vivamente consigliato)",
+    "url": "https://www.larecova.es/"
+  },
+  {
+    "id": "food-uvedoble",
+    "category": "food",
+    "title": "Uvedoble Taberna",
+    "desc": "Tapas bar moderno e contemporaneo guidato dallo chef Willie Orellana. Propone ricette tradizionali malagueñe rivisitate in chiave gourmet, come le mini-tapas di insalata russa, pasta con aglio nero o le polpette di coda di bue.",
+    "icon": "🍽️",
+    "location": "Calle Cister",
+    "hours": "Lun-Sab 12:30–16:00 e 19:30–23:30 · Domenica chiuso",
+    "url": "https://uvedobletaberna.com/"
+  },
+  {
+    "id": "food-mellizos",
+    "category": "food",
+    "title": "Los Mellizos Málaga",
+    "desc": "Riferimento cittadino indiscusso per gli amanti del pesce fresco, dei frutti di mare e della paella a Malaga. Il locale ha sia una zona tapas informale sia una sala ristorante elegante.",
+    "icon": "🦐",
+    "location": "Calle Sancha de Lara",
+    "hours": "Tutti i giorni 13:00–17:00 e 20:00–00:00",
+    "url": "https://www.losmellizos.net/malaga/"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "culture-alcazaba",
+    "category": "culture",
+    "title": "Alcazaba di Málaga",
+    "desc": "Splendida fortezza di epoca musulmana, magnificamente conservata. Passeggia tra i suoi cortili interni, fontane e giardini fioriti che offrono splendide vedute sul centro e sul porto.",
+    "icon": "🏰",
+    "location": "Calle Alcazabilla",
+    "hours": "Apr-Ott 09:00–20:00 · Nov-Mar 09:00–18:00 (consigliabile biglietto combinato con Gibralfaro)",
+    "url": "https://visita.malaga.eu/it/patrimonio/monumenti/alcazaba-p32611"
+  },
+  {
+    "id": "culture-teatro-romano",
+    "category": "culture",
+    "title": "Teatro Romano di Málaga",
+    "desc": "Teatro del I secolo d.C. situato proprio ai piedi dell'Alcazaba. Scoperto quasi per caso nel 1951, oggi è visitabile gratuitamente ed ha un centro visitatori che spiega la Malaga romana.",
+    "icon": "🏛️",
+    "location": "Calle Alcazabilla",
+    "hours": "Mar-Sab 10:00–18:00 · Dom 10:00–16:00 · Ingresso gratuito",
+    "url": "https://visita.malaga.eu/it/patrimonio/monumenti/teatro-romano-p32621"
+  },
+  {
+    "id": "culture-gibralfaro",
+    "category": "culture",
+    "title": "Castillo de Gibralfaro",
+    "desc": "Castello del XIV secolo situato sul monte Gibralfaro per difendere l'Alcazaba. Famoso in tutto il mondo per la vista panoramica spettacolare sui tetti di Malaga, sulla plaza de toros e sulla baia.",
+    "icon": "🛡️",
+    "location": "Camino de Gibralfaro",
+    "hours": "Apr-Ott 09:00–20:00 · Nov-Mar 09:00–18:00 (raggiungibile a piedi o con il bus 35)",
+    "url": "https://visita.malaga.eu/it/patrimonio/monumenti/castillo-de-gibralfaro-p32601"
+  },
+  {
+    "id": "culture-picasso",
+    "category": "culture",
+    "title": "Museo Picasso Málaga",
+    "desc": "Il museo più visitato dell'Andalusia, dedicato all'artista nato a Malaga. Ospitato nel magnifico Palazzo di Buenavista, custodisce oltre 200 opere che ripercorrono l'intera carriera di Pablo Picasso.",
+    "icon": "🎨",
+    "location": "Calle San Agustín",
+    "hours": "Tutti i giorni 10:00–19:00 (estate fino alle 20:00) · Gratuito l'ultima domenica del mese nelle ultime due ore",
+    "url": "https://www.museopicassomalaga.org/"
+  },
+  {
+    "id": "culture-catedral",
+    "category": "culture",
+    "title": "Catedral de la Encarnación (La Manquita)",
+    "desc": "Maestosa cattedrale rinascimentale andalusa. Deve il soprannome 'La Manquita' (la monchetta) al fatto che la torre sud è rimasta incompiuta per mancanza di fondi. Salire sui tetti offre una vista magnifica.",
+    "icon": "⛪",
+    "location": "Calle Molina Lario",
+    "hours": "Lun-Ven 10:00–20:00 · Sab 10:00–18:00 · Dom 14:00–18:00 · Ingresso a pagamento",
+    "url": "https://malagacatedral.com/"
+  },
+  {
+    "id": "culture-pompidou",
+    "category": "culture",
+    "title": "Centre Pompidou Málaga",
+    "desc": "La prima sede estera del celebre centro d'arte parigino, facilmente identificabile dal grande cubo di vetro colorato (opera di Daniel Buren) situato al Muelle Uno. Espone capolavori del XX e XXI secolo.",
+    "icon": "🟩",
+    "location": "Pasaje Doctor Carrillo Antequera",
+    "hours": "Mer-Lun 09:30–20:00 · Martedì chiuso · Gratuito la domenica pomeriggio dalle 16:00",
+    "url": "https://centrepompidou-malaga.eu/"
+  },
+  {
+    "id": "culture-thyssen",
+    "category": "culture",
+    "title": "Museo Carmen Thyssen Málaga",
+    "desc": "Ospitato nello storico Palacio de Villalón, il museo racchiude una collezione straordinaria di pittura spagnola e andalusa del XIX secolo, che ritrae scene di vita tradizionale, costumi e paesaggi del passato.",
+    "icon": "🖼️",
+    "location": "Calle Compañía",
+    "hours": "Mar-Dom 10:00–20:00 · Lunedì chiuso · Gratuito la domenica dalle 16:00",
+    "url": "https://www.carmenthyssenmalaga.org/"
+  },
+  {
+    "id": "culture-cac",
+    "category": "culture",
+    "title": "CAC Málaga",
+    "desc": "Centro di Arte Contemporanea situato nel vivace quartiere del Soho. Ospita mostre temporanee d'avanguardia di artisti nazionali e internazionali. L'ingresso è sempre gratuito.",
+    "icon": "🖌️",
+    "location": "Calle Alemania",
+    "hours": "Mar-Dom 09:00–14:00 e 17:00–21:30 (estate 10:00-14:00 e 17:00-21:00) · Ingresso gratuito",
+    "url": "https://cacmalaga.eu/"
+  },
+  {
+    "id": "culture-museo-malaga",
+    "category": "culture",
+    "title": "Museo de Málaga",
+    "desc": "Situato nello storico Palacio de la Aduana, è il museo più grande dell'Andalusia e riunisce le sezioni di Belle Arti ed Archeologia, con oltre 15.000 pezzi storici da epoca fenicia e romana a dipinti dell'800.",
+    "icon": "🏛️",
+    "location": "Plaza de la Aduana",
+    "hours": "Mar-Sab 09:00–21:00 · Dom 09:00–15:00 · Gratuito per cittadini UE (mostra carta d'identità)",
+    "url": "https://www.museosdeandalucia.es/web/museodemalaga"
+  }
+]

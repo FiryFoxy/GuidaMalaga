@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Erasmus a Malaga — Guida interattiva</title>
+    <meta name="description" content="Guida Erasmus a Malaga: musei, ristoranti, pub, gite, meteo, mappa e planner uscite. Luglio–agosto 2026." />
+    <meta name="theme-color" content="#6B1D2F" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Malaga Erasmus" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Erasmus a Malaga" />
+    <meta property="og:title" content="Erasmus a Malaga — Guida interattiva ☀️" />
+    <meta property="og:description" content="Musei, mangiare, pub, shopping, gite fuori porta, meteo e planner per il tuo Erasmus a Malaga." />
+    <meta property="og:image" id="meta-og-image" content="" />
+    <meta property="og:url" id="meta-og-url" content="" />
+    <meta property="og:locale" content="it_IT" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Erasmus a Malaga — Guida interattiva ☀️" />
+    <meta name="twitter:description" content="Organizza il tuo Erasmus a Malaga: luoghi, mappe, meteo e planner." />
+    <meta name="twitter:image" id="meta-twitter-image" content="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&display=swap" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <link rel="stylesheet" href="assets/main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="planner.js"></script>
+    <script src="supabase-client.js"></script>
+    <script src="group-planning-ui.js"></script>
+    <script src="map.js"></script>
+    <script src="planner-ui.js"></script>
+    <script src="weather.js"></script>
+    <script src="vocabulary.js"></script>
+    <script src="pwa.js"></script>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Chosen Palette: Warm Neutrals & Malaga Wine & Sunset Red (Background: #FAF8F5, Accents: #D9A59B, #B23B3B, #6B1D2F, Text: #333333) -->
+    <!-- Application Structure Plan: La SPA utilizza un'interfaccia a schede stile dashboard. Questa struttura permette all'utente di navigare rapidamente tra le diverse categorie di attività (Logistica, Cultura, Locali, Chicche, Gite) senza perdersi in una pagina eccessivamente lunga, favorendo l'usabilità immediata da mobile e desktop durante il soggiorno Erasmus. Ogni elemento contiene ora un link interattivo per approfondire direttamente sul sito ufficiale. -->
+    <!-- Visualization & Content Choices: Spese Erasmus -> Grafico a ciambella con Chart.js per mostrare in modo pulito le proporzioni del budget mensile. Per i luoghi e le gite si usano delle griglie di card interattive e dinamiche con indicatori visivi di cliccabilità (link esterni) per massimizzare l'esplorazione autonoma del territorio. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <header class="site-header text-[#FAF8F5] sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 site-header-inner">
+            <a href="#" class="site-brand" id="site-brand-home" aria-label="Erasmus a Malaga — Home">
+                <span class="site-logo-emoji" aria-hidden="true">☀️</span>
+                <div class="site-brand-text">
+                    <h1 class="site-brand-title">Erasmus a Malaga</h1>
+                    <p id="app-subtitle" class="site-brand-dates">Caricamento…</p>
+                </div>
+            </a>
+            <nav id="main-nav" aria-label="Sezioni guida"></nav>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto w-full px-3 sm:px-4 py-4 sm:py-8 relative main-content">
+        <div id="main-content"></div>
+
+    </main>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <footer class="bg-[#6B1D2F] text-[#FAF8F5] py-6 text-center mt-auto">
+        <p class="opacity-80 text-sm">Pronto per il tuo Erasmus estivo a Malaga? Esplora le sezioni e organizza le tue settimane! 🇪🇸</p>
+    </footer>
+
+    <script>
+        const appData = { tabs: [], places: [], config: null };
+
+        async function loadAppData() {
+            const base = getBasePath();
+            const configRes = await fetch(`${base}data/config.json`, { cache: 'no-store' });
+            if (!configRes.ok) throw new Error('config.json');
+            const config = await configRes.json();
+            appData.config = config;
+            appData.tabs = config.tabs || [];
+
+            const files = config.placeFiles || [];
+            const placesArrays = await Promise.all(
+                files.map(async (name) => {
+                    const res = await fetch(`${base}data/places/${name}.json`, { cache: 'no-store' });
+                    if (!res.ok) throw new Error(`places/${name}.json`);
+                    return res.json();
+                })
+            );
+            appData.places = placesArrays.flat();
+
+            try {
+                const coordsRes = await fetch(`${base}data/coordinates.json`, { cache: 'no-store' });
+                if (coordsRes.ok) {
+                    const coords = await coordsRes.json();
+                    appData.places = appData.places.map(p => {
+                        const c = coords[p.id];
+                        return c ? { ...p, lat: c.lat, lng: c.lng } : p;
+                    });
+                }
+            } catch (_) { /* coordinate opzionali */ }
+
+            if (config.subtitle) {
+                const sub = document.getElementById('app-subtitle');
+                if (sub) sub.textContent = config.subtitle;
+            }
+            if (config.erasmus && window.planner?.setErasmusDates) {
+                window.planner.setErasmusDates(config.erasmus.start, config.erasmus.end);
+            }
+            setShareMeta(config);
+        }
+
+        function setShareMeta(config) {
+            const pageUrl = window.location.href.split('#')[0];
+            const ogImage = new URL('assets/og-image.svg', window.location.href).href;
+            const title = config?.title ? `${config.title} — Guida interattiva ☀️` : 'Erasmus a Malaga — Guida interattiva ☀️';
+            const desc = config?.subtitle || 'Guida Erasmus a Malaga: musei, ristoranti, pub, gite, meteo e planner.';
+
+            document.title = title.replace(' ☘️', '');
+            const setMeta = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.setAttribute('content', value);
+            };
+            setMeta('meta-og-image', ogImage);
+            setMeta('meta-og-url', pageUrl);
+            setMeta('meta-twitter-image', ogImage);
+
+            document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+            document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
+            document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
+            document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title);
+            document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc);
+        }
+
+        let budgetChartInstance = null;
+        let currentTab = 'intro';
+        const filterState = { culture: '', food: '', nightlife: '', shopping: '', excursions: '', favOnly: {} };
+
+        function getBasePath() {
+            let path = window.location.pathname;
+            if (path.endsWith('/index.html')) path = path.slice(0, -10) + '/';
+            else if (!path.endsWith('/')) {
+                const slash = path.lastIndexOf('/');
+                path = slash >= 0 ? path.slice(0, slash + 1) : '/';
+            }
+            return path;
+        }
+
+        function placeById(id) {
+            return appData.places.find(p => p.id === id);
+        }
+
+        let toastTimer = null;
+        function showToast(msg) {
+            const el = document.getElementById('toast');
+            if (!el || !msg) return;
+            el.textContent = msg;
+            el.classList.add('toast--show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                el.classList.remove('toast--show');
+                el.textContent = '';
+            }, 2800);
+        }
+
+        window.App = {
+            get places() { return appData.places; },
+            placeById,
+            switchTab,
+            showToast,
+            quickAddToPlanner
+        };
+
+        function initApp() {
+            renderNavigation();
+            document.getElementById('site-brand-home')?.addEventListener('click', e => {
+                e.preventDefault();
+                switchTab('intro');
+            });
+            switchTab('intro');
+        }
+
+        function renderNavigation() {
+            const navContainer = document.getElementById('main-nav');
+            navContainer.innerHTML = '';
+            appData.tabs.forEach(tab => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'tab-btn';
+                btn.onclick = () => switchTab(tab.id);
+                btn.id = `btn-${tab.id}`;
+                btn.setAttribute('aria-label', tab.label);
+                btn.title = tab.label;
+                const short = tab.shortLabel || tab.label;
+                btn.innerHTML = `<span class="tab-icon" aria-hidden="true">${tab.icon}</span><span class="tab-label tab-label--full">${tab.label}</span><span class="tab-label tab-label--short">${short}</span>`;
+                navContainer.appendChild(btn);
+            });
+        }
+
+        function scrollActiveTabIntoView(tabId) {
+            const btn = document.getElementById(`btn-${tabId}`);
+            if (!btn) return;
+            requestAnimationFrame(() => {
+                btn.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+            });
+        }
+
+        async function switchTab(tabId) {
+            if (currentTab === 'map') window.MalagaMap?.destroyMalagaMap();
+            if (currentTab === 'planner') window.PlannerUI?.destroy();
+            if (currentTab === 'program') window.ProgramUI?.destroy();
+            currentTab = tabId;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.id === `btn-${tabId}`) btn.classList.add('active');
+            });
+            scrollActiveTabIntoView(tabId);
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '<div class="text-center text-gray-400 py-8">Caricamento...</div>';
+            try {
+                const base = getBasePath();
+                const resp = await fetch(`${base}sections/${tabId}.html`, { cache: 'no-store' });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                mainContent.innerHTML = await resp.text();
+                afterTabLoad(tabId);
+            } catch (e) {
+                mainContent.innerHTML = '<div class="text-center text-red-500 py-8">Errore nel caricamento della sezione.<br><span class="text-sm text-gray-500">Apri il sito tramite un server locale (<code>npx serve .</code>) o pubblicalo su GitHub Pages.</span></div>';
+                console.error(e);
+            }
+        }
+
+        function afterTabLoad(tabId) {
+            if (tabId === 'intro') {
+                initBudgetChart();
+                document.querySelectorAll('[data-goto-tab]').forEach(btn => {
+                    btn.onclick = () => switchTab(btn.dataset.gotoTab);
+                });
+            }
+            if (tabId === 'vocabulary') {
+                window.VocabUI?.init(document.getElementById('section-vocabulary'), { basePath: getBasePath() });
+            }
+            if (['culture', 'food', 'nightlife', 'shopping', 'excursions'].includes(tabId)) {
+                bindSectionFilters(tabId);
+                renderContent(tabId);
+            }
+            if (tabId === 'map') initMapTab();
+            if (tabId === 'weather') {
+                window.MalagaWeather?.init(document.getElementById('weather-root'), {
+                    basePath: getBasePath(),
+                    erasmus: appData.config?.erasmus
+                });
+            }
+            if (tabId === 'planner') {
+                window.PlannerUI.render({
+                    places: appData.places,
+                    placeById
+                });
+            }
+            if (tabId === 'program') {
+                window.ProgramUI?.render(document.getElementById('program-root'), {
+                    places: appData.places,
+                    placeById,
+                    dates: window.planner.getDateRange(),
+                    formatDate: window.planner.formatDateIT
+                });
+            }
+        }
+
+        function initMapTab() {
+            const filters = document.getElementById('map-filters');
+            const refresh = () => window.MalagaMap.initMalagaMap(appData.places, {
+                plans: window.planner.getSavedPlans(),
+                onAddToPlanner: (place) => {
+                    switchTab('planner').then(() => {
+                        setTimeout(() => {
+                            const sel = document.getElementById('planner-place');
+                            const date = document.getElementById('planner-date');
+                            if (sel) sel.value = place.id;
+                            if (date) date.value = window.planner.START_DATE;
+                            showToast(`${place.title} — compila data e salva`);
+                        }, 350);
+                    });
+                }
+            });
+            window.MalagaMap.renderMapFilters(filters, refresh);
+            refresh();
+        }
+
+        function bindSectionFilters(tabId) {
+            const search = document.getElementById(`${tabId}-search`);
+            const favBtn = document.getElementById(`${tabId}-fav-only`);
+            if (search) {
+                search.value = filterState[tabId] || '';
+                search.oninput = () => { filterState[tabId] = search.value; renderContent(tabId); };
+            }
+            if (favBtn) {
+                favBtn.onclick = () => {
+                    filterState.favOnly[tabId] = !filterState.favOnly[tabId];
+                    favBtn.classList.toggle('bg-[#6B1D2F]', filterState.favOnly[tabId]);
+                    favBtn.classList.toggle('text-white', filterState.favOnly[tabId]);
+                    renderContent(tabId);
+                };
+            }
+        }
+
+        function filteredPlaces(tabId) {
+            const q = (filterState[tabId] || '').toLowerCase();
+            const favOnly = filterState.favOnly[tabId];
+            return appData.places.filter(p => {
+                if (p.category !== tabId) return false;
+                if (favOnly && !window.planner.isFavorite(p.id)) return false;
+                if (!q) return true;
+                const hay = [p.title, p.desc, p.location, p.highlight, p.note, p.hours, p.transport].filter(Boolean).join(' ').toLowerCase();
+                return hay.includes(q);
+            });
+        }
+
+        function renderContent(tabId) {
+            const places = filteredPlaces(tabId);
+            if (tabId === 'culture') {
+                const grid = document.getElementById('culture-grid');
+                if (grid) grid.innerHTML = places.map(p => createCard(p, 'bg-white text-gray-800', p.location, 'text-[#B23B3B] bg-red-50')).join('') || emptyMsg();
+            } else if (tabId === 'food') {
+                const grid = document.getElementById('food-grid');
+                if (grid) grid.innerHTML = places.map(p => createCard(p, 'bg-white text-gray-800', p.note, 'text-[#D97757] bg-orange-50')).join('') || emptyMsg();
+            } else if (tabId === 'nightlife') {
+                const grid = document.getElementById('nightlife-grid');
+                if (grid) grid.innerHTML = places.map(p => createCard(p, 'bg-[#2C3E50] text-white', p.highlight, 'text-[#F7E1DD] bg-white bg-opacity-10')).join('') || emptyMsg();
+            } else if (tabId === 'shopping') {
+                const grid = document.getElementById('shopping-grid');
+                if (grid) grid.innerHTML = places.map(p => createCard(p, 'bg-white text-gray-800', p.note, 'text-[#6B1D2F] bg-yellow-50')).join('') || emptyMsg();
+            } else if (tabId === 'excursions') {
+                const list = document.getElementById('excursions-list');
+                if (list) list.innerHTML = places.map(p => createExcursionRow(p)).join('') || emptyMsg();
+            }
+            bindCardActions();
+        }
+
+        function emptyMsg() {
+            return '<p class="text-center text-gray-500 py-8 col-span-2">Nessun risultato. Prova un\'altra ricerca.</p>';
+        }
+
+        function bindCardActions() {
+            document.querySelectorAll('[data-fav]').forEach(btn => {
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const id = btn.dataset.fav;
+                    window.planner.toggleFavorite(id);
+                    renderContent(currentTab);
+                };
+            });
+            document.querySelectorAll('[data-add-plan]').forEach(btn => {
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const place = placeById(btn.dataset.addPlan);
+                    if (place) quickAddToPlanner(place);
+                };
+            });
+            document.querySelectorAll('[data-show-map]').forEach(btn => {
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const place = placeById(btn.dataset.showMap);
+                    if (!place?.lat) return;
+                    switchTab('map').then(() => {
+                        setTimeout(() => {
+                            window.MalagaMap.initMalagaMap(appData.places.filter(p => p.id === place.id), {
+                                plans: window.planner.getSavedPlans(),
+                                fitZoom: 16,
+                                onAddToPlanner: quickAddToPlanner
+                            });
+                        }, 400);
+                    });
+                };
+            });
+        }
+
+        function quickAddToPlanner(place) {
+            switchTab('planner').then(() => {
+                setTimeout(() => {
+                    const sel = document.getElementById('planner-place');
+                    const date = document.getElementById('planner-date');
+                    if (sel) sel.value = place.id;
+                    if (date && !date.value) date.value = window.planner.START_DATE;
+                    document.getElementById('planner-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    showToast('Luogo selezionato — scegli data e conferma');
+                }, 300);
+            });
+        }
+
+        function createCard(place, bgClass, badgeText, badgeStyle = 'text-gray-500') {
+            const fav = window.planner.isFavorite(place.id);
+            const hasUrl = place.url && !place.url.startsWith('#');
+            return `
+                <article class="place-card ${bgClass} p-6 rounded-2xl shadow-sm flex flex-col h-full border border-gray-100 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-4xl">${place.icon}</span>
+                        <div class="flex gap-1 flex-wrap justify-end">
+                            <button type="button" data-fav="${place.id}" class="text-lg leading-none px-2 py-1 rounded-lg hover:bg-black hover:bg-opacity-10" title="Preferito">${fav ? '★' : '☆'}</button>
+                            ${badgeText ? `<span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${badgeStyle}">${badgeText}</span>` : ''}
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">${place.title}</h3>
+                    ${place.hours ? `<p class="text-xs font-semibold opacity-80 mb-2">🕐 ${place.hours}</p>` : ''}
+                    <p class="text-sm opacity-90 flex-grow leading-relaxed">${place.desc}</p>
+                    <div class="place-card-actions mt-4 pt-3 border-t border-current border-opacity-10 flex flex-wrap gap-2">
+                        ${hasUrl ? `<a href="${place.url}" target="_blank" rel="noopener noreferrer" class="place-card-btn text-xs font-semibold px-3 py-1.5 rounded-full bg-black bg-opacity-5 hover:bg-opacity-10">Sito ↗</a>` : ''}
+                        ${place.lat != null ? `<button type="button" data-show-map="${place.id}" class="place-card-btn text-xs font-semibold px-3 py-1.5 rounded-full bg-[#F7E1DD] text-[#6B1D2F] hover:bg-[#D9A59B]">Mappa</button>` : ''}
+                        <button type="button" data-add-plan="${place.id}" class="place-card-btn text-xs font-semibold px-3 py-1.5 rounded-full bg-[#B23B3B] text-white hover:bg-[#6B1D2F]">+ Planner</button>
+                    </div>
+                </article>
+            `;
+        }
+
+        function createExcursionRow(place) {
+            const fav = window.planner.isFavorite(place.id);
+            return `
+                <article class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 items-center">
+                    <div class="text-5xl shrink-0 bg-[#F7E1DD] w-20 h-20 flex items-center justify-center rounded-full">${place.icon}</div>
+                    <div class="flex-grow text-center md:text-left w-full">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                            <h3 class="text-2xl font-bold text-[#6B1D2F]">${place.title}</h3>
+                            <button type="button" data-fav="${place.id}" class="text-xl" title="Preferito">${fav ? '★' : '☆'}</button>
+                        </div>
+                        <p class="text-gray-700 mb-2 leading-relaxed">${place.desc}</p>
+                        ${place.hours ? `<p class="text-xs text-[#B23B3B] font-semibold mb-3">🕐 ${place.hours}</p>` : ''}
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-start text-xs font-semibold mb-3">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">🚌/🚆 ${place.transport}</span>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">⏱️ ${place.time}</span>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full">💶 ${place.cost}</span>
+                        </div>
+                        <div class="place-card-actions flex flex-wrap gap-2 justify-center md:justify-start">
+                            <a href="${place.url}" target="_blank" rel="noopener noreferrer" class="place-card-btn text-xs font-semibold px-3 py-1.5 rounded-full bg-[#F7E1DD] text-[#6B1D2F] hover:bg-[#D9A59B]">Info & biglietti ↗</a>
+                            ${place.lat != null ? `<button type="button" data-show-map="${place.id}" class="place-card-btn text-xs font-semibold px-3 py-1.5 rounded-full bg-[#F7E1DD] text-[#6B1D2F]">Mappa</button>` : ''}
+                            <button type="button" data-add-plan="${place.id}" class="place-card-btn text-xs font-semibold px-3 py-1.5 rounded-full bg-[#B23B3B] text-white hover:bg-[#6B1D2F]">+ Planner</button>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function initBudgetChart() {
+            const canvas = document.getElementById('budgetChart');
+            if (!canvas) return;
+            if (budgetChartInstance) {
+                budgetChartInstance.destroy();
+                budgetChartInstance = null;
+            }
+            const ctx = canvas.getContext('2d');
+            
+            const data = {
+                labels: ['Cibo & Spesa quotidiana', 'Trasporti extra / Gite', 'Divertimento & Pub', 'Shopping & Souvenir'],
+                datasets: [{
+                    data: [250, 70, 180, 100],
+                    backgroundColor: [
+                        '#B23B3B',
+                        '#D9A59B',
+                        '#D97757',
+                        '#F7E1DD'
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            };
+
+            const config = {
+                type: 'doughnut',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Nunito', sans-serif"
+                                },
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(context.parsed);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            };
+
+            budgetChartInstance = new Chart(ctx, config);
+        }
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            const main = document.getElementById('main-content');
+            main.innerHTML = '<div class="text-center text-gray-400 py-12">Caricamento guida…</div>';
+            try {
+                await loadAppData();
+                initApp();
+            } catch (e) {
+                main.innerHTML = '<div class="text-center text-red-500 py-8">Impossibile caricare i dati.<br><span class="text-sm text-gray-500">Verifica che la cartella <code>data/</code> sia presente e che tu stia usando Live Server o GitHub Pages.</span></div>';
+                console.error(e);
+            }
+        });
+
+    </script>
+</body>
+</html>

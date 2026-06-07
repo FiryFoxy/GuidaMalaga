@@ -1,0 +1,72 @@
+[
+  {
+    "id": "shop-larios-street",
+    "category": "shopping",
+    "title": "Calle Marqués de Larios",
+    "desc": "La via dello shopping più famosa ed elegante di Malaga. Pedonale e pavimentata in marmo lucido, ospita i negozi dei marchi più importanti di moda nazionali e internazionali. Spettacolare nei periodi festivi per le luminarie.",
+    "icon": "🛍️",
+    "location": "Calle Larios (Centro Storico)",
+    "hours": "Negozi aperti indicativamente lun-sab 10:00–21:30 (alcuni brand anche domenica)",
+    "url": "https://www.malagaturismo.com/it/risorse-turistiche/dettaglio/calle-marques-de-larios/292"
+  },
+  {
+    "id": "shop-larios-centro",
+    "category": "shopping",
+    "title": "Centro Comercial Larios Centro",
+    "desc": "Grande centro commerciale al coperto situato in posizione centrale, vicino alla stazione dei bus. Troverai una vastissima selezione di negozi di abbigliamento (Zara, Mango, Primark, Pull&Bear), un supermercato e vari ristoranti.",
+    "icon": "🏬",
+    "location": "Avenida de la Aurora",
+    "hours": "Lun-Sab 10:00–22:00 (area ristorazione aperta anche domenica)",
+    "url": "https://www.larioscentro.com/"
+  },
+  {
+    "id": "shop-vialia",
+    "category": "shopping",
+    "title": "Centro Comercial Vialia",
+    "desc": "Centro commerciale unico integrato all'interno della principale stazione ferroviaria di Malaga (María Zambrano). Contiene molti marchi di moda, negozi di elettronica (MediaMarkt), una grande area ristorazione e un cinema moderno.",
+    "icon": "🚂",
+    "location": "Explanada de la Estación",
+    "hours": "Negozi lun-sab 10:00–22:00 · Ristorazione tutti i giorni fino a mezzanotte",
+    "url": "https://www.vialiamalaga.es/"
+  },
+  {
+    "id": "shop-corte-ingles",
+    "category": "shopping",
+    "title": "El Corte Inglés",
+    "desc": "Il celebre grande magazzino spagnolo. Disposto su più piani, vende articoli di profumeria, abbigliamento, valigeria ed elettronica di lusso. Visita la fantastica terrazza gourmet ('Gourmet Experience') sul tetto per una splendida vista.",
+    "icon": "👑",
+    "location": "Avenida de Andalucía",
+    "hours": "Lun-Sab 10:00–22:00",
+    "url": "https://www.elcorteingles.es/centroscomerciales/es/eci/centros/centro-comercial-malaga"
+  },
+  {
+    "id": "shop-muelle-uno",
+    "category": "shopping",
+    "title": "Muelle Uno (Porto)",
+    "desc": "Splendida galleria commerciale all'aperto che costeggia la banchina del porto. Ricca di negozietti alla moda, bancarelle di artigianato locale, chioschi, gelaterie e ristoranti fronte mare. Molto suggestivo la sera.",
+    "icon": "⚓",
+    "location": "Puerto de Málaga",
+    "hours": "Negozi tutti i giorni 10:00–22:00 (estate fino alle 23:00) · Ristoranti fino a tardi",
+    "url": "https://www.muelleuno.com/"
+  },
+  {
+    "id": "shop-plaza-mayor",
+    "category": "shopping",
+    "title": "Plaza Mayor & McArthurGlen Designer Outlet",
+    "desc": "Grande parco commerciale all'aperto, strutturato come un tipico villaggio andaluso con fontane e case bianche. Accanto sorge il Designer Outlet con sconti importanti su grandi marchi. Raggiungibile in circa 15 minuti di treno cercanías.",
+    "icon": "👜",
+    "location": "Alfonso Ponce de León (vicino aeroporto)",
+    "hours": "Lun-Sab 10:00–22:00 · Raggiungibile con linea ferroviaria C1 Cercanías",
+    "url": "https://www.plazamayor.es/"
+  },
+  {
+    "id": "shop-salamanca",
+    "category": "shopping",
+    "title": "Mercado de Salamanca",
+    "desc": "Bellissimo mercato rionale coperto in stile neo-arabo situato nel quartiere El Molinillo. Rispetto ad Atarazanas, è meno turistico e offre un'esperienza più autentica per comprare pesce, frutta e verdura freschissima.",
+    "icon": "🍉",
+    "location": "Calle San Bartolomé",
+    "hours": "Lun-Sab 08:00–15:00",
+    "url": "https://www.malagaturismo.com/it/risorse-turistiche/dettaglio/mercado-de-salamanca/16"
+  }
+]

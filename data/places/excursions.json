@@ -1,0 +1,93 @@
+[
+  {
+    "id": "trip-caminito",
+    "category": "excursions",
+    "title": "El Caminito del Rey",
+    "desc": "Uno dei sentieri più spettacolari e vertiginosi di tutta la Spagna. Attrezzato con passerelle sospese a 100 metri d'altezza lungo le pareti verticali della gola dei Gaitanes a El Chorro. Richiede la prenotazione con mesi di anticipo per l'accesso individuale.",
+    "icon": "🧗",
+    "location": "El Chorro (Álora)",
+    "hours": "Aperto mar-dom (controllare meteo/vento) · Biglietto obbligatorio",
+    "transport": "Treno Cercanías o MD da Málaga María Zambrano a El Chorro (circa 40 minuti)",
+    "time": "Giornata intera (percorso a piedi di ~3 ore + viaggio)",
+    "cost": "€10 ingresso semplice · €18 con guida (bus navetta escluso €2.50)",
+    "url": "https://www.caminitodelrey.info/"
+  },
+  {
+    "id": "trip-ronda",
+    "category": "excursions",
+    "title": "Ronda",
+    "desc": "Città storica di origine romana e araba arroccata su una gola profonda oltre 100 metri (El Tajo), unita dallo spettacolare Puente Nuevo. Visita la storica Plaza de Toros (una delle più antiche di Spagna) e i giardini del Re Moro.",
+    "icon": "⛰️",
+    "location": "Ronda (Serranía de Ronda)",
+    "hours": "Monumenti aperti di giorno · Accesso al ponte gratuito",
+    "transport": "Bus diretto (Damas) dalla stazione di Malaga (circa 2 ore) o treno Altaria",
+    "time": "Giornata intera",
+    "cost": "Ingresso monumenti variabile (€4 – €8)",
+    "url": "https://www.turismoderonda.es/"
+  },
+  {
+    "id": "trip-nerja",
+    "category": "excursions",
+    "title": "Nerja & Frigiliana",
+    "desc": "Nerja è celebre per le sue immense e spettacolari grotte preistoriche (Cuevas) e per il 'Balcón de Europa', una terrazza sul mare mozzafiato. Frigiliana è a soli 6km di bus, votata tra i più bei villaggi bianchi d'Andalusia, con vicoli stretti e vasi di fiori colorati.",
+    "icon": "🐚",
+    "location": "Nerja & Frigiliana (Costa del Sol Orientale)",
+    "hours": "Cuevas 10:00–16:30 (estate fino alle 19:00) · Balcón sempre accessibile",
+    "transport": "Bus diretto Alsa da Malaga a Nerja (1 ora), poi bus locale per Frigiliana (€1.20)",
+    "time": "Giornata intera (consigliato abbinarle)",
+    "cost": "Cuevas da €15 (prezzo studenti disponibile) · Frigiliana gratis",
+    "url": "https://www.cuevadenerja.es/"
+  },
+  {
+    "id": "trip-marbella",
+    "category": "excursions",
+    "title": "Marbella & Puerto Banús",
+    "desc": "La capitale del lusso e del glamour della Costa del Sol. Esplora il bellissimo e fiorito centro storico andaluso (Plaza de los Naranjos) e poi prendi un bus locale per Puerto Banús, il porto turistico dove ammirare imponenti yacht e negozi di alta moda.",
+    "icon": "🌴",
+    "location": "Marbella (Costa del Sol Occidentale)",
+    "hours": "Sempre accessibile · Negozi aperti fino a tardi",
+    "transport": "Bus semidiretto (Avanza) da Malaga stazione bus (circa 45–60 minuti)",
+    "time": "Mezza giornata o giornata intera",
+    "cost": "Costo bus circa €7 a tratta",
+    "url": "https://www.marbella.es/turismo.html"
+  },
+  {
+    "id": "trip-torcal",
+    "category": "excursions",
+    "title": "El Torcal de Antequera",
+    "desc": "Straordinaria riserva naturale caratterizzata da uno dei paesaggi carsici più spettacolari e bizzarri d'Europa, con rocce calcaree modellate dagli agenti atmosferici in forme insolite. Ci sono percorsi escursionistici facili e adatti a tutti.",
+    "icon": "🐐",
+    "location": "Antequera",
+    "hours": "Centro visitatori 10:00–17:00 (estate fino alle 19:00) · Accesso libero",
+    "transport": "Bus o treno da Malaga ad Antequera, poi taxi o escursione guidata (circa 50km)",
+    "time": "Mezza giornata o giornata intera",
+    "cost": "Accesso al parco gratuito",
+    "url": "http://www.torcaldeantequera.com/"
+  },
+  {
+    "id": "trip-granada",
+    "category": "excursions",
+    "title": "Granada (Alhambra)",
+    "desc": "La splendida capitale storica del regno nasride. La sua attrazione principale è lo spettacolare palazzo-fortezza dell'Alhambra, capolavoro mondiale dell'arte islamica, insieme al caratteristico quartiere dell'Albaicín. Biglietti Alhambra da comprare con largo anticipo!",
+    "icon": "🕌",
+    "location": "Granada",
+    "hours": "Alhambra aperta tutti i giorni · Orario di ingresso ai Palacios Nazaries tassativo",
+    "transport": "Bus diretto Alsa dalla stazione di Malaga (circa 1 ora e 45 minuti)",
+    "time": "Giornata intera",
+    "cost": "Biglietto generale Alhambra €19.18",
+    "url": "https://www.alhambra-patronato.es/"
+  },
+  {
+    "id": "trip-mijas",
+    "category": "excursions",
+    "title": "Mijas Pueblo",
+    "desc": "Classico e pittoresco paesino andaluso dalle case bianche arroccato sulla collina. Famoso per i suoi panorami splendidi sulla costa, le sue botteghe di ceramiche artigianali, e il piccolo santuario della Virgen de la Peña scavato nella roccia.",
+    "icon": "🏘️",
+    "location": "Mijas (Sierra de Mijas)",
+    "hours": "Monumenti aperti di giorno · Sempre accessibile",
+    "transport": "Treno Cercanías C1 fino a Fuengirola, poi bus diretto M-122 fino a Mijas Pueblo",
+    "time": "Mezza giornata",
+    "cost": "Costo trasporti molto ridotto (~€3.50 totali)",
+    "url": "https://www.mijas.es/portal/it/turismo/"
+  }
+]
