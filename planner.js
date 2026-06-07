@@ -1,8 +1,8 @@
-// Planner uscite Malaga Erasmus — 13 luglio / 16 agosto 2026
+// Planner uscite Malaga Erasmus — 10 luglio / 13 agosto 2026
 const PLANNER_KEY = 'uscitePlannerMalaga2026';
 const FAVORITES_KEY = 'favoritesMalaga2026';
-let START_DATE = '2026-07-13';
-let END_DATE = '2026-08-16';
+let START_DATE = '2026-07-10';
+let END_DATE = '2026-08-13';
 
 function setErasmusDates(start, end) {
   if (start) START_DATE = start;

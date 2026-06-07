@@ -10,7 +10,7 @@
     "transport": "Plaza de la Constitución. Tipicamente il punto di partenza del tour",
     "time": "2 ore",
     "cost": "Gratis (consigliata mancia alla guida)",
-    "url": "https://www.caminitodelrey.info/"
+    "url": "https://www.civitatis.com/it/malaga/free-tour-malaga"
   },
   {
     "id": "trip-caminito",
@@ -36,7 +36,7 @@
     "transport": "Bus diretto (Damas) dalla stazione di Malaga (circa 2 ore) o treno Altaria",
     "time": "Giornata intera",
     "cost": "Ingresso monumenti variabile (€4 – €8)",
-    "url": "https://www.turismoderonda.es/"
+    "url": "https://turismoderonda.es/"
   },
   {
     "id": "trip-nerja",
@@ -49,7 +49,7 @@
     "transport": "Bus diretto Alsa da Malaga a Nerja (1 ora), poi bus locale per Frigiliana (€1.20)",
     "time": "Giornata intera (consigliato abbinarle)",
     "cost": "Cuevas da €15 (prezzo studenti disponibile) · Frigiliana gratis",
-    "url": "https://www.cuevadenerja.es/"
+    "url": "https://cuevadenerja.es/"
   },
   {
     "id": "trip-marbella",
@@ -62,7 +62,7 @@
     "transport": "Bus semidiretto (Avanza) da Malaga stazione bus (circa 45–60 minuti)",
     "time": "Mezza giornata o giornata intera",
     "cost": "Costo bus circa €7 a tratta",
-    "url": "https://www.marbella.es/turismo.html"
+    "url": "https://turismo.marbella.es/"
   },
   {
     "id": "trip-torcal",
@@ -75,7 +75,7 @@
     "transport": "Bus o treno da Malaga ad Antequera, poi taxi o escursione guidata (circa 50km)",
     "time": "Mezza giornata o giornata intera",
     "cost": "Accesso al parco gratuito",
-    "url": "http://www.torcaldeantequera.com/"
+    "url": "https://www.torcaldeantequera.com/"
   },
   {
     "id": "trip-granada",
@@ -101,6 +101,6 @@
     "transport": "Treno Cercanías C1 fino a Fuengirola, poi bus diretto M-122 fino a Mijas Pueblo",
     "time": "Mezza giornata",
     "cost": "Costo trasporti molto ridotto (~€3.50 totali)",
-    "url": "https://www.mijas.es/portal/it/turismo/"
+    "url": "https://turismo.mijas.es/es/"
   }
 ]

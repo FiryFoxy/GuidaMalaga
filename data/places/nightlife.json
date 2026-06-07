@@ -7,7 +7,7 @@
     "icon": "🎸",
     "location": "Calle Tejón y Marín",
     "hours": "Tutti i giorni 22:30–04:00 (fine settimana fino alle 05:00)",
-    "url": "http://www.zzpub.es/"
+    "url": "https://zzpub.es/"
   },
   {
     "id": "night-velvet",
@@ -17,7 +17,7 @@
     "icon": "🕺",
     "location": "Calle Convalecientes",
     "hours": "Gio-Sab 22:00–04:00 (venerdì-sabato fino alle 05:00)",
-    "url": "https://www.velvetclub.es/"
+    "url": "https://velvetclub.es/"
   },
   {
     "id": "night-gold",
@@ -27,7 +27,7 @@
     "icon": "✨",
     "location": "Calle Luis de Velázquez",
     "hours": "Tutti i giorni 23:00–06:00 (ingresso a pagamento, a volte pacchetti Erasmus)",
-    "url": "https://salagold.com/"
+    "url": "https://www.salagold.com/es/sala-gold/"
   },
   {
     "id": "night-shakespeare",
@@ -47,7 +47,7 @@
     "icon": "🍸",
     "location": "Plaza Poeta Alfonso Canales",
     "hours": "Dom-Gio 11:00–00:00 · Ven-Sab 11:00–02:00",
-    "url": "https://room-matehotels.com/it/valeria/r-roof-terrace/"
+    "url": "https://room-matehotels.com/it/hotel-valeria-malaga/"
   },
   {
     "id": "night-morrisseys",
@@ -57,7 +57,7 @@
     "icon": "🍻",
     "location": "Calle Méndez Núñez",
     "hours": "Dom-Gio 12:00–02:00 · Ven-Sab 12:00–03:00",
-    "url": "https://morrisseysirishpub.com/"
+    "url": "https://morrisseysmalaga.com/"
   },
   {
     "id": "night-larios",
@@ -67,7 +67,7 @@
     "icon": "🌃",
     "location": "Calle Marqués de Larios",
     "hours": "Tutti i giorni 16:00–01:00 (venerdì e sabato fino alle 02:00)",
-    "url": "https://room-matehotels.com/it/larios/r-roof-terrace/"
+    "url": "https://www.hotellariosmalaga.com/gastronomy/la-terraza-de-larios/"
   },
   {
     "id": "night-mitjana",

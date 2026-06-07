@@ -7,7 +7,7 @@
     "icon": "🍷",
     "location": "Calle Granada",
     "hours": "Tutti i giorni 12:00–01:00",
-    "url": "https://elpimpi.com/"
+    "url": "https://www.elpimpi.com/"
   },
   {
     "id": "food-atarazanas",
@@ -17,7 +17,7 @@
     "icon": "🐟",
     "location": "Calle Atarazanas",
     "hours": "Lun-Sab 08:00–15:00 · Domenica chiuso (perfetto per pranzo presto)",
-    "url": "https://www.malagaturismo.com/it/risorse-turistiche/dettaglio/mercado-central-de-atarazanas/13"
+    "url": "https://www.malaga.eu/recursos/mercados/atarazanas/index.html"
   },
   {
     "id": "food-guardia",
@@ -37,7 +37,7 @@
     "icon": "🥘",
     "location": "Playa de El Palo",
     "hours": "Tutti i giorni 12:30–23:30 (raggiungibile con i bus 3 o 8)",
-    "url": "https://eltinteromadre.com/"
+    "url": "https://restauranteeltintero.es/"
   },
   {
     "id": "food-cortijo",
@@ -47,7 +47,7 @@
     "icon": "🥩",
     "location": "Plaza de la Merced",
     "hours": "Mer-Dom 12:30–16:00 e 19:30–00:00 · Lun-Mar chiuso",
-    "url": "https://www.cortijodepepe.com/"
+    "url": "https://cortijodepepe.es/"
   },
   {
     "id": "food-lola",
@@ -57,7 +57,7 @@
     "icon": "🍢",
     "location": "Calle Granada / Plaza Uncibay",
     "hours": "Tutti i giorni 12:00–00:00",
-    "url": "https://tabernacasalola.com/"
+    "url": "https://grupocasalola.com/"
   },
   {
     "id": "food-recova",
@@ -67,7 +67,7 @@
     "icon": "☕",
     "location": "Pasaje Nuestra Señora de los Dolores",
     "hours": "Lun-Ven 08:30–16:00 · Sab 08:30–13:00 · Domenica chiuso (vivamente consigliato)",
-    "url": "https://www.larecova.es/"
+    "url": "https://recovamalaga.wixsite.com/larecova"
   },
   {
     "id": "food-uvedoble",
@@ -77,7 +77,7 @@
     "icon": "🍽️",
     "location": "Calle Cister",
     "hours": "Lun-Sab 12:30–16:00 e 19:30–23:30 · Domenica chiuso",
-    "url": "https://uvedobletaberna.com/"
+    "url": "https://www.uvedobletaberna.com/"
   },
   {
     "id": "food-mellizos",

@@ -1,6 +1,6 @@
 # ☀️ Guida Malaga — Erasmus 2026
 
-Guida interattiva per il soggiorno Erasmus a Malaga (**13 luglio – 16 agosto 2026**): musei, ristoranti, pub, gite e planner uscite.
+Guida interattiva per il soggiorno Erasmus a Malaga (**10 luglio – 13 agosto 2026**): musei, ristoranti, pub, gite e planner uscite.
 
 ## Funzionalità
 

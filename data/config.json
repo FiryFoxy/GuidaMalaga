@@ -1,9 +1,9 @@
 {
   "title": "Erasmus a Malaga",
-  "subtitle": "13 luglio – 16 agosto 2026 · 5 settimane a Malaga",
+  "subtitle": "10 luglio – 13 agosto 2026 · 5 settimane a Malaga",
   "erasmus": {
-    "start": "2026-07-13",
-    "end": "2026-08-16"
+    "start": "2026-07-10",
+    "end": "2026-08-13"
   },
   "tabs": [
     { "id": "intro", "label": "Home", "shortLabel": "Home", "icon": "🏠" },
