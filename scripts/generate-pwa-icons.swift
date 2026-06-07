@@ -1,7 +1,7 @@
 import AppKit
 
 let emoji = "☀️"
-let bg = NSColor(red: 52.0 / 255, green: 78.0 / 255, blue: 65.0 / 255, alpha: 1)
+let bg = NSColor(red: 108.0 / 255, green: 29.0 / 255, blue: 47.0 / 255, alpha: 1)
 let outDir = CommandLine.arguments.count > 1
     ? CommandLine.arguments[1]
     : FileManager.default.currentDirectoryPath + "/assets/icons"
