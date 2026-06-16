@@ -4,6 +4,7 @@
 html {
     scroll-padding-top: 5.5rem;
     -webkit-text-size-adjust: 100%;
+    color-scheme: light;
 }
 
 body {
@@ -233,8 +234,9 @@ h1, h2, h3, .serif-font {
 .planner-form-card { background: #fff; border: 1px solid #F7E1DD; border-radius: 1.25rem; padding: 1.25rem; box-shadow: 0 1px 3px rgba(52,78,65,.06); }
 .planner-form-title { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 700; color: #6B1D2F; margin-bottom: 0.25rem; }
 .field-label { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #B23B3B; margin: 0.75rem 0 0.25rem; }
-.field-input { width: 100%; padding: 0.6rem 0.85rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; font-size: 0.9rem; }
+.field-input { width: 100%; padding: 0.6rem 0.85rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; font-size: 0.9rem; background: #fff; color: #333; }
 .field-input:focus { outline: none; border-color: #D9A59B; box-shadow: 0 0 0 3px rgba(163,177,138,.25); }
+.field-input:-webkit-autofill { -webkit-text-fill-color: #333; box-shadow: 0 0 0px 1000px #fff inset; }
 
 .btn-primary { padding: 0.75rem 1rem; border-radius: 0.75rem; background: #6B1D2F; color: #fff; font-weight: 700; border: none; cursor: pointer; }
 .btn-primary:hover { background: #B23B3B; }
@@ -1585,4 +1587,16 @@ h1, h2, h3, .serif-font {
 .btn-primary,
 .btn-secondary {
     -webkit-tap-highlight-color: rgba(217, 165, 155, 0.35);
+}
+
+@media print {
+    body { background: #fff; color: #000; }
+    .site-header, #main-nav, .pwa-install, #toast, .program-admin-expanded, .planner-view-tabs, .day-picker-wrap, .stat-card { display: none !important; }
+    #planner-container, #group-planning-container { margin: 0; padding: 0; }
+    .agenda-day { page-break-inside: avoid; margin-bottom: 2rem; }
+    .agenda-day-title { border-bottom: 1px solid #000; color: #000; }
+    .proposal-card { border: none; box-shadow: none; padding: 0.5rem 0; }
+    .proposal-card h4 { font-size: 1.2rem; }
+    .plan-link, .proposal-actions, .proposal-badge { display: none !important; }
+    .proposal-meta { color: #333; }
 }

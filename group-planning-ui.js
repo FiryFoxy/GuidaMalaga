@@ -441,13 +441,20 @@ const ProgramUI = (() => {
           <button type="button" id="program-admin-close" class="program-admin-link">Chiudi</button>
         </div>
         ${state.message ? `<p class="program-admin-msg program-admin-msg--block">${esc(state.message)}</p>` : ''}
-        <form id="program-login-form" class="program-admin-form">
-          <label class="field-label" for="program-login-email">Email</label>
-          <input type="email" id="program-login-email" required class="field-input" placeholder="tutor@email.it" autocomplete="username">
-          <label class="field-label" for="program-login-password">Password</label>
-          <input type="password" id="program-login-password" required minlength="6" class="field-input" placeholder="Password" autocomplete="current-password">
-          <button type="submit" class="btn-primary mt-3 w-full sm:w-auto">Accedi</button>
+        <form id="program-login-form" class="space-y-4 mt-4 text-left">
+          <div class="program-admin-field">
+            <label class="field-label" for="program-login-email">Email</label>
+            <input type="email" id="program-login-email" class="field-input" required>
+          </div>
+          <div class="program-admin-field">
+            <label class="field-label" for="program-login-password">Password</label>
+            <input type="password" id="program-login-password" class="field-input" required>
+          </div>
+          <button type="submit" class="btn-primary w-full">Accedi con Email</button>
         </form>
+        <div class="mt-4 pt-4 border-t border-gray-100/10 text-center">
+          <button type="button" id="program-login-google" class="btn-secondary w-full sm:w-auto text-sm">Oppure, accedi con Google</button>
+        </div>
       </div>
     `;
   }
@@ -510,6 +517,8 @@ const ProgramUI = (() => {
             <span class="program-admin-kpi-label">In programma</span>
           </div>
         </div>
+
+        ${state.message ? `<p class="program-admin-msg program-admin-msg--block">${esc(state.message)}</p>` : ''}
 
         <div class="program-admin-layout">
           <section class="program-admin-form-col" aria-labelledby="program-admin-form-title">
@@ -576,11 +585,11 @@ const ProgramUI = (() => {
           <select id="program-date" required class="field-input">${dates}</select>
         </div>
         <div class="program-admin-field">
-          <label class="field-label" for="program-place">Luogo dalla guida</label>
-          <select id="program-place" class="field-input">
-            <option value="">— Personalizzato —</option>
-            ${placeOptions}
-          </select>
+          <label class="field-label" for="program-place">Luogo (dalla guida o personalizzato)</label>
+          <input list="program-place-options" id="program-place" class="field-input" value="${esc(edit?.place_id ? (ctx.placeById(edit.place_id)?.title || edit.place_id) : '')}" placeholder="Cerca o scrivi qui...">
+          <datalist id="program-place-options">
+            ${ctx.places.map(place => `<option value="${esc(place.title)}">`).join('')}
+          </datalist>
         </div>
         <div class="program-admin-field">
           <label class="field-label" for="program-location">Luogo / ritrovo</label>
@@ -666,20 +675,35 @@ const ProgramUI = (() => {
       });
     });
 
+    root.querySelector('#program-login-google')?.addEventListener('click', async e => {
+      e.preventDefault();
+      await run(root, ctx, async () => {
+        await window.MalagaSupabase.signInWithGoogle();
+        const profile = await window.MalagaSupabase.profile();
+        if (profile?.role !== 'admin' || profile?.status !== 'active') {
+          await window.MalagaSupabase.signOut();
+          throw new Error('Accesso riservato ai tutor.');
+        }
+        state.message = '';
+      });
+    });
+
     root.querySelector('#program-signout')?.addEventListener('click', async () => {
       await run(root, ctx, () => window.MalagaSupabase.signOut());
     });
 
     root.querySelector('#program-proposal-form')?.addEventListener('submit', async e => {
       e.preventDefault();
-      const placeId = root.querySelector('#program-place').value;
-      const place = placeId ? ctx.placeById(placeId) : null;
+      const placeInput = root.querySelector('#program-place').value.trim();
+      const place = ctx.places.find(p => p.title.toLowerCase() === placeInput.toLowerCase());
+      const placeId = place ? place.id : (placeInput ? placeInput : null);
+      
       await run(root, ctx, async () => {
         await window.MalagaSupabase.saveProposal({
           id: root.querySelector('#program-proposal-id').value || null,
           title: root.querySelector('#program-title').value.trim(),
           day_date: root.querySelector('#program-date').value,
-          place_id: placeId || null,
+          place_id: placeId,
           location: root.querySelector('#program-location').value.trim() || place?.title || '',
           description: root.querySelector('#program-description').value.trim(),
           status: root.querySelector('#program-proposal-status').value || 'open'
